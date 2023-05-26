@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<?php session_start();?>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/checkOut.css">
+    <title>OTRS-Check Out</title>
+    <script>window.addEventListener('offline', function(){history.pushState(null, null, window.location.href);window.location.replace("./offlinePage")})</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./JS/getUserDetails.js"></script>
+</head>
+<body>
+    <div class="header">
+        <a href="./index" class="logoHeader" id="logoHeader">
+            <img src="./pictures/logo.png" class="imgLogoHeader" alt="genericLogo">
+        </a>
+    </div>
+    <?php
+        if (isset($_SESSION['uname'])){
+            echo "<p style='visibility:hidden' id='uname'>".$_SESSION['uname']."</p>";
+        }else{
+            header('Location: ./login');
+        }
+    ?>
+    <div class="contents">
+        <img src="./pictures/backIcon.png" alt="backIcon" id="backButton" class="backIcon">
+        <p id="fullname" class="fullnameText"></p>
+        <p class="nameTitle rowTitle">RECIPIENT NAME</p>
+        <p id="addressLine" class="addressLine userDetails"></p>
+        <p class="addTitle rowTitle">ADDRESS</p>
+        <p id="cnum" class="cnum userDetails"></p>
+        <p class="cnumTitle rowTitle">CONTACT NUMBER</p>
+        <textarea name="message" class="message" id="message" cols="30" rows="10" placeholder="Optional Message Here..."></textarea>
+        <div class="itemPriceDiv">
+            <div class="nameDiv">
+                <h2 id="itemName" class="itemName"></h2>
+            </div>
+            <h3 id="price" class="price"></h3>            
+        </div>
+        <h2 id="itemName" class="itemName"></h2>
+        <h3 id="price" class="price"></h3>
+        <p class="stock" id="stock"></p>
+        <div class="justLine"></div>
+        <h3 class="quanText">Quantity:</h3>
+        <div class="quan">
+            <input type="number" class="quanValue" id="quanValue" value="1">
+            <button class="quanPlus buttonQuan" id="quanPlus">+</button>
+            <button class="quanMinus buttonQuan" id="quanMinus">-</button>
+        </div>
+        <div class="compuDiv" id="compuDiv">
+            <p class="ppText">Product Price:</p>
+            <p class="ppNum" id="ppNum"></p>
+            <p class="qText">Quantity</p>
+            <p class="qNum" id="qNum">1</p>
+            <p class="subText">SUBTOTAL</p>
+            <p class="subNum" id="subNum"></p>
+            <p class="dText">Delivery Fee</p>
+            <p class="dFee" id="dFee">60</p>
+        </div>
+        <div class="totalDiv">
+            <h1 class="tText">TOTAL:</h1>
+            <h1 class="tNum" id="tNum"></h1>
+            <button type="button" name="checkOutButton" id="checkOutButton" class="checkOutButton">CHECK OUT</button>
+        </div>
+    </div>
+    <script src="./JS/checkVerified.js"></script>
+    <script src="./JS/quantity.js"></script>
+    <script src="./JS/checkOut.js"></script>
+</body>
+</html>

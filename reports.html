@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<?php session_start(); ?>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/reports.css">
+    <script>window.addEventListener('offline', function(){history.pushState(null, null, window.location.href);window.location.replace("./offlinePage")})</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="./JS/getReports.js"></script>
+    <title>OTRS-Report</title>
+</head>
+<body>
+    <div class="header">
+        <img src="./pictures/logo.png" class="logoHeader" alt="genericLogo">
+        <img src="./pictures/hamburgerButtonIcon.png" class="menuButton" id="menuButton" alt="hamburgerButtonIcon">
+        <p class="xButton" id="xButton">X</p>
+    </div>
+    <div class="body">
+        <div class="menu menuhidden" id="menu">
+            <p class="prodButton"><a class="prodButton" href="./products">Products</a></p>
+            <p class="shopButton"><a class="shopButton" href="./orders">Orders</a></p>
+            <p class="reportsButton"><a class="reportsButton" href="./reports">Reports</a></p>
+            <?php
+                if(isset($_SESSION['uname'])){
+                    echo "<p class='logButton'><a class='logButton' href='". $_SERVER["PHP_SELF"]."/../PHP/endAdminSession.php'>Logout</a></p>";
+                }
+            ?>
+        </div>
+        <div class="content">
+            <h1 class="reportsText">REPORTS</h1>
+            <p class="welcomeText">Prepare for a comprehensive sales overview! Take a closer look at our current performance. Explore This Month's Total Sales, witness the Increase from the Previous Month, and gain valuable insights from the Daily Sales Graph. Stay informed, track trends, and make data-driven decisions based on our sales analysis.</p> 
+            <div class="reportDiv">
+                <div class="mSales report">
+                    <div class="mSalesBox Box">
+                        <h3 id="totalSalesTitle">DEFAULT</h3>
+                        <h1 id="totalSales">DEFAULT</h1>        
+                    </div>
+                </div>
+                <div class="incSales report">
+                    <div class="incSalesBox Box">
+                        <h3>Increase in Sales Compared<br>to Last Month</h2>
+                        <h1 id="totalIncrease">DEFAULT</h1>
+                        <h1 id="totalLastSales"><br>DEFAULT</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="graphDiv" id="graphDiv">
+                <div class="areaWrapper">
+                    <canvas id="barGraph" style="width:100%;max-width:600px"></canvas>
+                </div>
+            </div>
+            <div class="otherDiv">
+                <h4 id="otherText">Other Reports This Month</h3>
+                <p id="itemHighSales"></p>
+                <p id="itemHighSold"></p>    
+            </div>
+        </div>
+        <?php
+        if (isset($_SESSION['uname'])){
+            if ($_SESSION['uname']=='OTRSadmin'){
+                echo "<p style='display:none;' id='a98v4Hhvn'>".$_SESSION['uname']."</p>";
+            }
+            else{
+                echo "<p style='visibility:hidden;' id='a98v4Hhvn'>NotAdmin</p>";
+            }
+        } 
+        else{
+            echo "<p style='visibility:hidden;' id='a98v4Hhvn'>NotAdmin</p>";
+        }
+        ?>
+    </div>
+    <script src="./JS/checkAdmin.js"></script>
+    <script src="./JS/burgerMenu.js"></script>
+</body>
+</html>

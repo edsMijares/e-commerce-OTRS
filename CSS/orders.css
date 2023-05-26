@@ -1,0 +1,322 @@
+html, body{
+    margin: 0 auto;
+    height: 100%;
+    font-family:Arial, Helvetica, sans-serif;
+    color: black;
+    background-color: black;
+    overflow: hidden;
+    font-size: 3.5vw;
+}
+body{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10% 90%;
+}
+/* HEADER */
+.header{
+    grid-row: 1;
+    grid-column: 1;
+    background-color: black;
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: 1fr;
+}
+.logoHeader{
+    grid-row: 1;
+    grid-column: 1;
+    width: 70%;
+    height: 50%;
+    margin-left: 3%;
+    margin-top: auto;
+    margin-bottom: auto;
+    border-bottom: black;
+    background-color: black;
+}
+.menuButton{
+    grid-row: 1;
+    grid-column: 2;
+    margin: auto;
+    height: 50%;
+    width: 50%;
+    cursor: pointer;
+}
+.xButton{
+    grid-row: 1;
+    grid-column: 2;
+    margin: auto;
+    font-size: 8vw;
+    font-weight: bolder;
+    cursor: pointer;
+    color: white;
+    visibility: hidden;
+}
+.body{
+    grid-column: 1;
+    grid-row: 2;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+.menu{
+    grid-row: 1;
+    grid-column: 2;
+    height: 100vh;
+    width: 80%;
+    margin-left: auto;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 3% 7% 7% 7% 7% 7% 16% 7% 7%;
+    border-left: #F55139 2px solid;
+    z-index: 1000;
+    position: fixed;
+    max-width: 40%;
+    transition: all ease 250ms;
+}
+.menuhidden{
+    transform: translateX(300%);
+}
+.menuvisible{
+    transform: translateX(150%);
+    box-shadow: rgb(38, 57, 77) 0px 20px 150px -10px;
+}
+.menu p{
+    color: black;
+    text-align: right;
+    margin-right: 15%;
+    font-size: 5vw;
+    font-weight: bolder;
+}
+a:link{
+    text-decoration: none;
+    color: black;
+}
+a:visited{
+    text-decoration: none;
+    color: black;
+}
+.prodButton{
+    grid-row: 2;
+    grid-column: 1;
+}
+.shopButton{
+    grid-row: 3;
+    grid-column: 1;
+}
+.reportsButton{
+    grid-row: 4;
+    grid-column: 1;
+}
+.logButton{
+    grid-row: 5;
+    grid-column: 1;
+}
+.contents{
+    grid-column: 1/3;
+    grid-row: 1;
+    display: grid;
+    grid-template-rows: 10vw 170vw;
+    grid-template-columns: 1fr;
+}
+.orderTabs{
+    grid-column: 1;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+}
+.tabText{
+    grid-row: 1;
+    font-size: 75%;
+    margin: auto;
+    color: #F55139;
+}
+.pendingText{
+    grid-column: 1;
+}
+.orderText{
+    grid-column: 2;
+    color: white;
+}
+.deliText{
+    grid-column: 3;
+}
+.background{
+    grid-row: 1;
+}
+.backgroundPending{
+    grid-column: 1;
+}
+.backgroundOrderText{
+    grid-column: 2;
+    background-color: #F55139;
+}
+.backgroundDeli{
+    grid-column: 3;
+}
+.ordersDiv{
+    grid-column: 1;
+    grid-row: 2;
+    visibility: visible;
+    overflow-y: scroll;
+}
+.pendingDiv{
+    grid-column: 1;
+    grid-row: 2;
+    visibility: hidden;
+    overflow-y: scroll;
+}
+.deliDiv{
+    grid-column: 1;
+    grid-row: 2;
+    visibility: hidden;
+    overflow-y: scroll;
+}
+.newDiv{
+    width: 90%;
+    height: 50vw;
+    background-color: white;
+    margin: auto;
+    margin-top: 5%;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 65% 35%;
+    border: #DDA780 solid 1px;
+    box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.25);
+}
+.userDiv{
+    grid-column: 1;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 15% 85%;
+    grid-template-rows: 25% 25% fit-content(100%) fit-content(100%);
+}
+.userFullname{
+    grid-column: 2;
+    grid-row: 1;
+    margin: auto;
+    margin-top: 3%;
+    margin-left: 1%;
+    font-size: large;
+}
+.userCnum{
+    grid-column: 2;
+    grid-row: 2;
+    margin: auto;
+    margin-left: 1%;
+}
+.userAddress{
+    grid-column: 2;
+    grid-row: 3/5;
+    font-size: 3vw;
+    margin: auto;
+    margin-left: 1%;
+}
+.prodDiv{
+    grid-column: 1;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: fit-content(100%) fit-content(10%) fit-content(10%) 1fr;
+}
+.prodName{
+    grid-column: 1/3;
+    grid-row: 1;
+    margin: auto;
+    color: #F55139;
+    margin-left: 3%;
+}
+.IDitem{
+    grid-column: 2;
+    grid-row: 1;
+    margin: auto;
+    margin-right: 3%;
+    color: rgba(0, 0, 0, 0.5);
+}
+.itemPrice{
+    grid-column: 1;
+    grid-row: 2;
+    margin: auto;
+    margin-left: 4%;
+}
+.itemQuantity{
+    grid-column: 1;
+    grid-row: 3;
+    margin: auto;
+    margin-left: 4%;
+}
+.totalPrice{
+    grid-column: 1/3;
+    grid-row: 4;
+    margin: auto;
+    margin-left: 4%;
+    margin-bottom: 1%;
+    color: #F55139;
+}
+.acceptButton{
+    grid-column: 2;
+    grid-row: 2;
+    margin: auto;
+    margin-bottom: 5%;
+    border: none;
+    background-color: #F55139;
+    color: white;
+    font-size: 4vw;
+    font-weight: bolder;
+    width: 90%;
+    height: 30%;
+}
+.divImage{
+    grid-column: 2;
+    grid-row: 1/3;
+    margin: auto;
+    width: 90%;
+    margin-bottom: 40%;
+    opacity: 50%;
+}
+.pendingDate{
+    grid-column: 2;
+    grid-row: 1;
+    margin: auto;
+    margin-right: 3%;
+    margin-top: 0%;
+}
+.orderStatus{
+    grid-column: 2;
+    grid-row: 1;
+    margin: auto;
+    margin-right: 3%;
+    margin-top: 15%;
+    opacity: 50%;
+}
+.userIcon{
+    grid-column: 1;
+    grid-row: 1;
+    margin: auto;
+    margin-bottom: 0%;
+    width: 60%;
+    height: 80%;
+}
+.contactIcon{
+    grid-column: 1;
+    grid-row: 2;
+    margin: auto;
+    margin-bottom: 0%;
+    width: 50%;
+    height: 80%;
+}
+.doneButton{
+    grid-column: 2;
+    grid-row: 2;
+    margin: auto;
+    margin-bottom: 5%;
+    border: none;
+    background-color: white;
+    color: #F55139;
+    font-size: 4vw;
+    font-weight: bolder;
+    width: 90%;
+    height: 30%;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/signup.css">
+    <title>OTRS-Sign Up</title>
+    <script>window.addEventListener('offline', function(){history.pushState(null, null, window.location.href);window.location.replace("./offlinePage")})</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.8/lottie.min.js"></script>
+    <script src="./JS/signup.js"></script>
+</head>
+<body>
+    <div id="loadingGIF"></div>
+    <div id="custom-toast" class="custom-toast">
+        <span id="toast-Message" class="custom-toast-message">DEFAULT</span>
+    </div>
+    <div class="header">
+        <a href="./index" class="logoHeader" id="logoHeader">
+            <img src="./pictures/logo.png" alt="genericLogo">
+        </a>
+    </div>
+    <div class="body" id="body">
+        <div class="whiteBG"></div>
+        <img src="./pictures/bgPic2.png" class="bgPic" alt="bgPic">
+        <p class="signupText">JOIN US</p>
+        <input type="text" placeholder="Firstname" class="fname long" id="fname" name="fname">
+        <input type="text" placeholder="Lastname" class="lname long" id="lname" name="lname">
+        <select name="genderSelect" id="genderSelect" class="genderSelect short" name="genderSelect">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        <input type="date" class="bday short" id="bday" name="bday">
+        <div class="bdayTextDiv">
+            <p class="bdayText">BirthDay</p>
+            <p class="genderText">Gender</p> 
+        </div>
+        <input type="text" placeholder="username" class="uname long" id="uname" name="uname">
+        <input type="password" placeholder="password" class="pass long" id="pass" name="pass">
+        <input type="password" placeholder="confirm password" class="cpass long" id="cpass" name="cpass">
+        <input type="email" placeholder="email" class="email long" id="email" name="email">
+        <input type="text" placeholder="address" class="address long" id="address" name="address">
+        <input type="number" placeholder="contact number" class="cnumber long" id="cnumber" name="cnumber">
+        <button type="submit" class="signupButton" id="signupButton">SIGNUP</button>
+        <a class="linkLogin" href="./login">already had an account</a>
+    </div>
+    <script src="./JS/keyhandlerSignUp.js"></script>
+</body>
+</html>

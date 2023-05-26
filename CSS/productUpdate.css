@@ -1,0 +1,245 @@
+html, body{
+    margin: 0 auto;
+    height: 100%;
+    font-family:Arial, Helvetica, sans-serif;
+    color: black;
+    background-color: none;
+    overflow: hidden;
+}
+body{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10% 90%;
+}
+/* HEADER */
+.header{
+    grid-row: 1;
+    grid-column: 1;
+    background-color: black;
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: 1fr;
+}
+.logoHeader{
+    grid-row: 1;
+    grid-column: 1;
+    width: 70%;
+    height: 50%;
+    margin-left: 3%;
+    margin-top: auto;
+    margin-bottom: auto;
+    border-bottom: black;
+    background-color: black;
+}
+.logoHeader img{
+    height: 100%;
+    width: 100%;
+}
+.content{
+    grid-row: 2;
+    grid-column: 1;
+    display: grid;
+    grid-template-rows: 35% 7% 7% 8% fit-content(100%) 7vw 25% 10%;
+    grid-template-columns: 1fr;
+}
+.imgDiv{
+    grid-row: 1;
+    grid-column: 1;
+    display: grid;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    border-bottom: 1px solid black;
+}
+.prodImg{
+    height: 100%;
+    max-height: 55vw;
+    max-width: 80vw;
+    margin: auto;
+}
+.prodText{
+    margin: auto;
+    margin-left: 3vw;
+    margin-bottom: 2px;
+    font-size: 5vw;
+    font-weight: bolder;
+}
+.nameDiv{
+    grid-row: 2;
+    grid-column: 1;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 90% 10%;
+}
+.prodName{
+    grid-row: 1;
+    grid-column: 1;
+    height: 5vw;
+    border: none;
+}
+.prodName:disabled{
+    background-color: white;
+    color: black;
+}
+.prodPrice:disabled{
+    background-color: white;
+    color: #F55139;
+}
+.priceDiv{
+    grid-row: 3;
+    grid-column: 1;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 90% 10%;
+}
+.prodPrice{
+    grid-row: 1;
+    grid-column: 1;
+    height: 5vw;
+    border: none;
+    margin-top: 0%;
+    color: #F55139;
+}
+.editIcon{
+    grid-column: 2;
+    margin: auto;
+    margin-left: 5%;
+    margin-bottom: 2px;
+    height: 6vw;
+}
+.editIcon2{
+    margin-top: 0%;
+}
+.stockDiv{
+    grid-row: 4;
+    grid-column: 1;
+    display: grid;
+    grid-template-columns: 50vw 50vw;
+    grid-template-rows: fit-content(100%);
+}
+.stockText{
+    grid-row: 1;
+    grid-column: 1;
+    font-size: 5vw;
+    margin: auto;
+    margin-left: 8%;
+}
+.addStockDiv{
+    grid-row: 1;
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 1fr;
+}
+.inputNewStock{
+    height: 6vw;
+}
+.addButton{
+    grid-row: 1;
+    grid-column: 2;
+    border: none;
+    background-color: #F55139;
+    color: white;
+    font-weight: bold;
+    margin: auto;
+    margin-left: 1vw;
+    height: 90%;
+    width: 70%;
+}
+.categDiv{
+    grid-row: 5;
+    grid-column: 1;
+    display: grid;
+    grid-template-rows: fit-content(100%);
+    grid-template-columns: 1fr 1fr;
+}
+.categText{
+    grid-row: 1;
+    grid-column: 1;
+    font-size: 5vw;
+    margin: auto;
+    margin-left: 8%;
+}
+.categSelection{
+    height: 7vw;
+    width: 90%;
+}
+.descDiv{
+    grid-row: 7;
+    grid-column: 1;
+    display: grid;
+    grid-template-rows: 5vw 1fr;
+    grid-template-columns: 1fr;
+}
+.prodDesc{
+    grid-row: 1;
+    grid-column: 1;
+    font-size: 4vw;
+    margin: auto;
+    margin-left: 5%;
+    margin-bottom: 0%;
+}
+.prodDescText{
+    grid-row: 2;
+    grid-column: 1;
+    margin: auto;
+    width: 90%;
+    height: 90%;
+}
+.updateButton{
+    grid-row: 8;
+    grid-column: 1;
+    background-color: #F55139;
+    color: white;
+    margin: auto;
+    margin-top: 1%;
+    font-weight: bolder;
+    border: none;
+    font-size: 3.8vw;
+    height: 5vh;
+    width: 25vw;
+}
+input:focus{
+    outline: 1px solid rgba(85, 85, 85, 0.5);
+}
+.resetIcon{
+    grid-row: 1;
+    grid-column: 1;
+    height: 90%;
+    margin: auto;
+    margin-right: 1%;
+}
+.categInput{
+    grid-row: 6;
+    grid-column: 1;
+    margin: auto;
+    margin-right: 5%;
+    width: 43%;
+}
+.backIcon{
+    grid-row: 1;
+    grid-column: 1;
+    z-index: 5;
+    height: 8vw;
+    margin-top: 1%;
+    margin-left: 1%;
+}
+.editImg{
+    grid-row: 1;
+    grid-column: 1;
+    margin: auto;
+    margin-bottom: 1%;
+    margin-right: 1%;
+}
+.imgInput{
+    grid-row: 1;
+    grid-column: 1;
+    margin: auto;
+    z-index: 1000;
+    width: 20vw;
+    margin-bottom: 2%;
+    margin-left: 74%;
+}
+input::-webkit-file-upload-button{
+    display: none;
+}

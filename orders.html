@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<?php session_start(); ?>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/orders.css">
+    <title>OTRS-Orders</title>
+    <script>window.addEventListener('offline', function(){history.pushState(null, null, window.location.href);window.location.replace("./offlinePage")})</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./JS/getPendingOrders.js"></script>
+    <script src="./JS/getAcceptedOrder.js"></script>
+    <script src="./JS/getDeliveredOrders.js"></script>
+</head>
+<body>
+    <div class="header">
+        <img src="./pictures/logo.png" class="logoHeader" alt="genericLogo">
+        <img src="./pictures/hamburgerButtonIcon.png" class="menuButton" id="menuButton" alt="hamburgerButtonIcon">
+        <p class="xButton" id="xButton">X</p>
+    </div>
+    <div class="body">
+        <div class="menu menuhidden" id="menu">
+            <p class="prodButton"><a class="prodButton" href="./products">Products</a></p>
+            <p class="shopButton"><a class="shopButton" href="./orders">Orders</a></p>
+            <p class="reportsButton"><a class="reportsButton" href="./reports">Reports</a></p>
+            <?php
+                if(isset($_SESSION['uname'])){
+                    echo "<p class='logButton'><a class='logButton' href='". $_SERVER["PHP_SELF"]."/../PHP/endAdminSession.php'>Logout</a></p>";
+                }
+            ?>
+        </div>
+        <div class="contents">
+            <div class="orderTabs">
+                <div class="backgroundPending background" id="backgroundPending"></div>
+                <h2 class="pendingText tabText" id="pendingText">PENDING</h2>
+                <div class="backgroundOrderText background" id="backgroundOrderText"></div>
+                <h2 class="orderText tabText" id="orderText">ORDERS</h2>
+                <div class="backgroundDeli background" id="backgroundDeli"></div>
+                <h2 class="deliText tabText" id="deliText">DELIVERED</h2>
+            </div>
+            <div class="ordersDiv" id="ordersDiv">
+                
+            </div>
+            <div class="pendingDiv" id="pendingDiv">
+            </div>
+            <div class="deliDiv" id="deliDiv">
+
+            </div>
+        </div>
+        <?php
+        if (isset($_SESSION['uname'])){
+            if ($_SESSION['uname']=='OTRSadmin'){
+                echo "<p style='visibility:hidden;' id='a98v4Hhvn'>".$_SESSION['uname']."</p>";
+            }
+            else{
+                echo "<p style='visibility:hidden;' id='a98v4Hhvn'>NotAdmin</p>";
+            }
+        } 
+        else{
+            echo "<p style='visibility:hidden;' id='a98v4Hhvn'>NotAdmin</p>";
+        }
+        ?>
+    </div>
+    <script src="./JS/checkAdmin.js"></script>
+    <script src="./JS/burgerMenu.js"></script>
+    <script src="./JS/changeTabOrd.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<?php session_start(); ?>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/otrsNotified.css">
+    <title>OTRS-Notification</title>
+    <script>window.addEventListener('offline', function(){history.pushState(null, null, window.location.href);window.location.replace("./offlinePage")})</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./JS/cancelRequest.js"></script>
+    <script src="./JS/getStatus.js"></script>
+</head>
+<body>
+    <div class="header">
+        <img src="./pictures/logo.png" class="logoHeader" alt="genericLogo">
+        <img src="./pictures/hamburgerButtonIcon.png" class="menuButton" id="menuButton" alt="hamburgerButtonIcon">
+        <p class="xButton" id="xButton">X</p>
+    </div>
+    <div class="body">
+        <div class="contents">
+            <p class="mnText" id="mnText">MECHANIC<br>NOTIFIED</p>
+            <img src="./pictures/mechanicLogo.png" class="mechanicLogo" alt="mechanicLogo">
+            <p class="text101 nText" id="text101">A notification has been sent to the<br>available mechanic</p>
+            <p class="text102 nText" id="text102">WAIT FOR THE<br>MECHANIC TO CALL</p>
+            <p class="text103 nText">If waiting last for 3 Minutes call<br>09961281643</p>
+            <?php
+                echo "<p style='visibility:hidden' id='unameValue'>".$_SESSION['uname']."</p>";
+                echo "<button type='button' class='cancelButton' onclick=cancelButton('".$_SESSION['uname']."')>CANCEL</button>";
+            ?>
+        </div>
+        <div class="menu menuhidden" id="menu">
+            <p class="homeButton"><a href="./index">Home</a></p>
+            <p class="shopButton">Shop</p>
+            <?php
+                if(isset($_SESSION['uname'])){
+                    echo "<p class='cartButton'><a href='./cart'>Cart</a></p>";
+                    echo "<p class='logButton'><a class='logButton' href='". $_SERVER["PHP_SELF"]."/../PHP/endSession.php'>Logout</a></p>";
+                }
+                else{
+                    echo "<p class='cartButton'><a href='./login'>Cart</a></p>";
+                    echo "<p class='logButton' ><a class='logButton' href='./login' >Login</a></p>";
+                }
+            ?>
+            <p class="aboutButton">About Us</p>
+            <p class="contactButton">Contact Us</p>
+        </div>
+    </div>
+    <script src="./JS/checkVerified.js"></script>
+    <script src="./JS/burgerMenu.js"></script>
+</body>
+</html>

@@ -1,0 +1,306 @@
+html, body{
+    margin: 0 auto;
+    height: 100%;
+    font-family:Arial, Helvetica, sans-serif;
+    color: black;
+    background-color: black;
+    overflow: hidden;
+}
+body{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10% 90%;
+}
+/* HEADER */
+.header{
+    grid-row: 1;
+    grid-column: 1;
+    background-color: black;
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: 1fr;
+}
+.logoHeader{
+    grid-row: 1;
+    grid-column: 1;
+    width: 70%;
+    height: 50%;
+    margin-left: 3%;
+    margin-top: auto;
+    margin-bottom: auto;
+    border-bottom: black;
+    background-color: black;
+}
+.menuButton{
+    grid-row: 1;
+    grid-column: 2;
+    margin: auto;
+    height: 50%;
+    width: 50%;
+    cursor: pointer;
+}
+.xButton{
+    grid-row: 1;
+    grid-column: 2;
+    margin: auto;
+    font-size: 8vw;
+    font-weight: bolder;
+    cursor: pointer;
+    color: white;
+    visibility: hidden;
+}
+/* BODY */
+.body{
+    grid-column: 1;
+    grid-row: 2;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+.menu{
+    grid-row: 1;
+    grid-column: 2;
+    height: 100vh;
+    width: 80%;
+    margin-left: auto;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 3% 7% 7% 7% 7% 7% 16% 7% 7%;
+    border-left: #F55139 2px solid;
+    z-index: 1000;
+    position: fixed;
+    max-width: 40%;
+    transition: all ease 250ms;
+}
+.menuhidden{
+    transform: translateX(300%);
+}
+.menuvisible{
+    transform: translateX(150%);
+    box-shadow: rgb(38, 57, 77) 0px 20px 150px -10px;
+}
+.menu p{
+    color: black;
+    text-align: left;
+    margin-left: 1rem;
+    font-size: 5vw;
+    font-weight: bolder;
+}
+a:link{
+    text-decoration: none;
+    color: black;
+}
+a:visited{
+    text-decoration: none;
+    color: black;
+}
+.prodButton{
+    grid-row: 2;
+    grid-column: 1;
+}
+.shopButton{
+    grid-row: 3;
+    grid-column: 1;
+}
+.reportsButton{
+    grid-row: 4;
+    grid-column: 1;
+}
+.logButton{
+    grid-row: 5;
+    grid-column: 1;
+}
+.content{
+    grid-row: 1;
+    grid-column: 1/3;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 5% 95%;
+}
+.newProdsDiv{
+    grid-row: 2;
+    grid-column: 1/3;
+}
+.prodsButton{
+    grid-row: 1;
+    grid-column: 1;
+    background-color: #F55139;
+    color: white;
+    font-weight: bolder;
+    border: none;
+}
+.newProdsButton{
+    grid-row: 1;
+    grid-column: 2;
+    background-color: white;
+    color: black;
+    font-weight: bolder;
+    border: none;
+}
+.prodsDiv{
+    grid-row: 2/3;
+    grid-column: 1/3;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 5% fit-content(100%);
+    overflow-y: scroll;
+}
+.newProdsDiv{
+    display: none;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10% 5% 5% 5% 25% 5% 5% 5% 15%; 
+    visibility: hidden;
+}
+.pdText{
+    grid-column: 1;
+    margin: auto;
+    margin-left: 5%;
+    font-size: 4vw;
+    font-weight: bolder;
+}
+.pdInput{
+    grid-column: 1;
+    margin: auto;
+    width: 50%;
+    margin-left: 40%; 
+    text-indent: 5%;
+}
+input[type=text]{
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+}
+input[type=number]{
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+}
+textarea{
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+    height: 85%;
+}
+select{
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px 0px inset;
+}
+.productnameText{
+    grid-row: 2;
+}
+.priceText{
+    grid-row: 3;
+}
+.quanText{
+    grid-row: 4;
+}
+.descText{
+    grid-row: 5;
+    margin-top: 1.5%;
+}
+.addText{
+    grid-row: 8;
+}
+.categText{
+    grid-row: 6;
+}
+.nCateg{
+    grid-row: 7;
+}
+.nCategInput{
+    grid-row: 7;
+}
+.selectCateg{
+    grid-row: 6;
+    width: 37vw;
+    width: 50%;
+    z-index: 100;
+}
+.productnameInput{
+    grid-row: 2;
+}
+.priceInput{
+    grid-row: 3;
+}
+.quantityInput{
+    grid-row: 4;
+}
+.descInput{
+    grid-row: 5;
+}
+.imgInput{
+    grid-column: 1;
+    grid-row: 8;
+    margin: auto;
+    margin-left: 37%;
+}
+.submitButton{
+    grid-row: 9;
+    grid-column: 1;
+    background-color: #F55139;
+    color: white;
+    margin: auto;
+    height: 30%;
+    width: 30%;
+    border: none;
+    font-size: 4vw;
+    font-weight: bolder;
+}
+.searchDiv{
+    grid-row: 1;
+    grid-column: 1;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 40vw 13vw 1fr;
+}
+.searchIcon{
+    grid-row: 1;
+    grid-column: 2;
+    margin: auto;
+    height: 1.1rem;
+    width: 1.1rem;
+}
+.inputSearch{
+    grid-row: 1;
+    grid-column: 3;
+    height: 50%;
+    width: 95%;
+    margin: auto;
+    margin-left: -5%;
+}
+.divTable{
+    grid-row: 2;
+    grid-column: 1;
+    margin: auto;
+    width: 95%;
+}
+table{
+    width: 100%;
+    border-spacing: 1px;
+    background-color: black;
+}
+table th{
+    font-size: 0.9rem;
+    color: white;
+}
+table:first-child th{
+    background-color: #F55139;
+}
+table td{
+    background-color: white;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+}
+table td:nth-child(4){
+    text-align: center;
+}
+.OUTOFSTOCK{
+    background-color: red;
+    color: white;
+    font-weight: bolder;
+}
+.Short{
+    background-color: yellow;
+    font-weight: bolder;
+}
+.Good{
+    background-color: green;
+    color: white;
+    font-weight: bolder;
+}

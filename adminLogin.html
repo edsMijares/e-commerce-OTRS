@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/adminLogin.css">
+    <title>OTRS Admin</title>
+    <script>window.addEventListener('offline', function(){history.pushState(null, null, window.location.href);window.location.replace("./offlinePage")})</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./JS/adminLogin.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="header">
+            <a href="./adminLogin" class="logoHeader" id="logoHeader">
+                <img src="./pictures/logo.png" alt="genericLogo">
+            </a>
+        </div>
+    </div>
+    <div class="body">
+        <div class="whiteBG"></div>
+        <img src="./pictures/bgPic2.png" class="bgPic" alt="bgPic">
+        <p class="loginText">ADMIN</p>
+        <input type="text" class="usernameInput" id="usernameInput" name="usernameInput">
+        <p class="usernameText">Administrator</p>
+        <input type="password" class="passInput" id="passInput" name="passInput">
+        <p class="passText">Security Pass</p>
+        <button class="enterButton" id="enterButton" name="enterButton">ENTER</button>
+    </div>
+    <script src="./JS/keyhandlerAdmin.js"></script>
+</body>
+</html>

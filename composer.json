@@ -1,0 +1,6 @@
+{
+    "require": {
+        "guzzlehttp/guzzle": "^7.5",
+        "mailjet/mailjet-apiv3-php": "^1.5"
+    }
+}

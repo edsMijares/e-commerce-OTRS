@@ -1,0 +1,465 @@
+html, body{
+    margin: 0 auto;
+    height: 100%;
+    font-family:Arial, Helvetica, sans-serif;
+    color: black;
+    background-color: black;
+    overflow: hidden;
+    font-size: 3.5vw;
+}
+body{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10% 90%;
+}
+/* HEADER */
+.header{
+    grid-row: 1;
+    grid-column: 1;
+    background-color: black;
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: 1fr;
+}
+.logoHeader{
+    grid-row: 1;
+    grid-column: 1;
+    width: 70%;
+    height: 50%;
+    margin-left: 3%;
+    margin-top: auto;
+    margin-bottom: auto;
+    border-bottom: black;
+    background-color: black;
+}
+.menuButton{
+    grid-row: 1;
+    grid-column: 2;
+    margin: auto;
+    height: 50%;
+    width: 50%;
+    cursor: pointer;
+}
+.xButton{
+    grid-row: 1;
+    grid-column: 2;
+    margin: auto;
+    font-size: 8vw;
+    font-weight: bolder;
+    cursor: pointer;
+    color: white;
+    visibility: hidden;
+}
+/* BODY */
+.body{
+    grid-column: 1;
+    grid-row: 2;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+.menu{
+    grid-row: 1;
+    grid-column: 2;
+    height: 100vh;
+    width: 80%;
+    margin-left: auto;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 3% 7% 7% 7% 7% 7% 16% 7% 7%;
+    border-left: #F55139 2px solid;
+    z-index: 1000;
+    position: fixed;
+    max-width: 40%;
+    transition: all ease 250ms;
+}
+.menuhidden{
+    transform: translateX(300%);
+}
+.menuvisible{
+    transform: translateX(150%);
+    box-shadow: rgb(38, 57, 77) 0px 20px 150px -10px;
+}
+.menu p{
+    color: black;
+    text-align: left;
+    margin-left: 1rem;
+    font-size: 5vw;
+    font-weight: bolder;
+}
+a:link{
+    text-decoration: none;
+}
+a:visited{
+    text-decoration: none;
+    color: black;
+}
+.homeButton{
+    grid-row: 2;
+    grid-column: 1;
+}
+.shopButton{
+    grid-row: 3;
+    grid-column: 1;
+}
+.cartButton{
+    grid-row: 4;
+    grid-column: 1;
+}
+.logButton{
+    grid-row: 5;
+    grid-column: 1;
+}
+.aboutButton{
+    grid-row: 8;
+    grid-column: 1;
+}
+.contactButton{
+    grid-row: 9;
+    grid-column: 1;
+}
+/* CONTENTS */
+.contents{
+    grid-row: 1;
+    grid-column: 1/3;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: fit-content(100%);
+    overflow-y: scroll;
+}
+.userIndicator{
+    grid-column: 1;
+    grid-row: 1;
+    margin: auto;
+    margin-right: 0%;
+    width: 25%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+.unameText{
+    grid-row: 1;
+    grid-column: 2;
+    margin: auto;
+    margin-right: 0%;
+    color: white;
+    font-size: 3vw;
+}
+.userIcon{
+    grid-row: 1;
+    grid-column: 1;
+    margin: auto;
+    margin-right: 0%;
+    color: white;
+}
+.cartTabs{
+    grid-row: 1;
+    grid-column: 1;
+    display: grid;
+    height: 10vw;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+.background{
+    grid-row: 1;
+}
+.tabText{
+    grid-row: 1;
+    font-size: 3vw;
+    text-align: center;
+    margin: auto;
+}
+.cartText{
+    grid-column: 1;
+    color: white;
+}
+.pendingText{
+    grid-column: 2;
+}
+.toShipText{
+    grid-column: 3;
+}
+.receivedText{
+    grid-column: 4;
+}
+.completedText{
+    grid-column: 5;
+}
+.backgroundCart{
+    grid-column: 1;
+    background-color: #F55139;
+}
+.backgroundPending{
+    grid-column: 2;
+}
+.backgroundToShip{
+    grid-column: 3;
+}
+.backgroundReceived{
+    grid-column: 4;
+}
+.backgroundCompleted{
+    grid-column: 5;
+}
+.contentDiv{
+    grid-row: 2;
+    grid-column: 1;
+    overflow-y: scroll;
+}
+.cartDiv{
+    visibility: visible;
+    height: 83vh;
+}
+.itemDiv{
+    border: solid 1px black;
+    height: 35vw;
+    width: 95%;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 1fr;
+    margin: auto;
+    margin-top: 2%;
+}
+.imgDiv{
+    grid-column: 1;
+    grid-row: 1;
+    height: 90%;
+    width: 80%;
+    margin: auto;
+    position: relative;
+}
+.items{
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    height: 100%;
+}
+.detailDiv{
+    grid-column: 2;
+    grid-row: 1;
+    display: grid;
+    grid-template-rows: 30% 20% 10% 40%;
+    grid-template-columns: 1fr;
+}
+.prodNameText{
+    grid-column: 1;
+    grid-row: 1;
+    font-weight: bolder;
+    font-size: 4vw;
+    max-height: 100%;
+    margin: auto;
+    margin-left: 0px;
+}
+.stockText{
+    grid-column: 1;
+    grid-row: 2;
+    margin: auto;
+    margin-left: 0px;
+    margin-top: 0px;
+    font-size: 3vw;
+}
+.priceText{
+    grid-row: 4;
+    grid-column: 1;
+    margin: auto;
+    margin-left: 0px;
+    color: #F55139;
+    font-size: 8vw;
+    font-weight: bolder;
+}
+.confirmButton{
+    grid-row: 2;
+    grid-column: 2;
+    margin: auto;
+    margin-bottom: 5%;
+    border: none;
+    height: 8vw;
+    width: 90%;
+    background-color: #F55139;
+    color: white;
+    font-weight: bold;
+}
+.cartImg{
+    grid-column: 1;
+    grid-row: 1;
+    margin: auto;
+    margin-right: 5%;
+    height: 70%;
+    width: 13%;
+}
+.pendingDiv{
+    grid-column: 1;
+    grid-row: 2;
+    visibility: hidden;
+    height: 83vh;
+}
+.toShipDiv{
+    grid-column: 1;
+    grid-row: 2;
+    visibility: hidden;
+    height: 83vh;
+}
+.receivedDiv{
+    grid-column: 1;
+    grid-row: 2;
+    visibility: hidden;
+    height: 83vh;
+}
+.completedDiv{
+    grid-column: 1;
+    grid-row: 2;
+    visibility: hidden;
+    height: 83vh;
+}
+.postNewDiv{
+    width: 90%;
+    height: 50vw;
+    background-color: white;
+    margin: auto;
+    margin-top: 5%;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 65% 35%;
+    border: #DDA780 solid 1px;
+    box-shadow: 0px 4px 7px rgba(0, 0, 0, 0.25);
+}
+.postUserDiv{
+    grid-column: 1;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 15% 85%;
+    grid-template-rows: 25% 25% fit-content(100%) fit-content(100%);
+}
+.postUserIcon{
+    grid-column: 1;
+    grid-row: 1;
+    margin: auto;
+    margin-bottom: 0%;
+    width: 60%;
+    height: 80%;
+}
+.postContactIcon{
+    grid-column: 1;
+    grid-row: 2;
+    margin: auto;
+    margin-bottom: 0%;
+    width: 50%;
+    height: 80%;
+}
+.postOrderStatus{
+    grid-column: 2;
+    grid-row: 1;
+    margin: auto;
+    margin-right: 3%;
+    margin-top: 15%;
+    opacity: 50%;
+}
+.postUserFullname{
+    grid-column: 2;
+    grid-row: 1;
+    margin: auto;
+    margin-top: 3%;
+    margin-left: 1%;
+    font-size: large;
+}
+.postUserCnum{
+    grid-column: 2;
+    grid-row: 2;
+    margin: auto;
+    margin-left: 1%;
+}
+.postUserAddress{
+    grid-column: 2;
+    grid-row: 3/5;
+    font-size: 3vw;
+    margin: auto;
+    margin-left: 1%;
+}
+.postPendingDate{
+    grid-column: 2;
+    grid-row: 1;
+    margin: auto;
+    margin-right: 3%;
+    margin-top: 0%;
+}
+.postProdDiv{
+    grid-column: 1;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 75% 25%;
+    grid-template-rows: fit-content(100%) fit-content(10%) fit-content(10%) 1fr;
+}
+.postProdName{
+    grid-column: 1/3;
+    grid-row: 1;
+    margin: auto;
+    color: #F55139;
+    margin-left: 3%;
+}
+.postItemPrice{
+    grid-column: 1;
+    grid-row: 2;
+    margin: auto;
+    margin-left: 4%;
+}
+.postItemQuantity{
+    grid-column: 1;
+    grid-row: 3;
+    margin: auto;
+    margin-left: 4%;
+}
+.postTotalPrice{
+    grid-column: 1/3;
+    grid-row: 4;
+    margin: auto;
+    margin-left: 4%;
+    margin-bottom: 1%;
+    color: #F55139;
+}
+.postDivImage{
+    grid-column: 2;
+    grid-row: 1/3;
+    margin: auto;
+    width: 90%;
+    margin-bottom: 40%;
+    opacity: 50%;
+}
+.noRecordDiv{
+    margin: auto;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 45vh 10vw;
+}
+.noRecordImg{
+    grid-row: 1;
+    grid-column: 1;
+    margin: auto;
+    margin-bottom: 0%;
+    height: 50vw;
+}
+.noRecordText{
+    grid-row: 2;
+    grid-column: 1;
+    font-size: 5vw;
+    color: rgba(63, 71, 84, 0.727);
+    margin: auto;
+    margin-top: 0%;
+}
+.buyButton{
+    grid-row: 4;
+    grid-column: 1;
+    margin: auto;
+    margin-right: 3vw;
+    width: 25vw;
+    height: 10vw;
+    font-size: 3.5vw;
+    font-weight: bold;
+    background-color: #F55139;
+    color: white;
+    border: none;
+}

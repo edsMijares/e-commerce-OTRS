@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<?php session_start();
+    if (isset($_SESSION['uname'])){
+        header('Location: ./index');
+    }   
+?>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/login.css">
+    <title>OTRS</title>
+    <script>window.addEventListener('offline', function(){history.pushState(null, null, window.location.href);window.location.replace("./offlinePage")})</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.8/lottie.min.js"></script>
+    <script src="./JS/login.js"></script>
+</head>
+<body >
+    <div id="loadingGIF"></div>
+    <div class="header">
+        <a href="./index" class="logoHeader" id="logoHeader">
+            <img src="./pictures/logo.png" class="imgLogoHeader" alt="genericLogo">
+        </a>
+    </div>
+    <div class="body" id="body">
+        <div class="whiteBG"></div>
+        <img src="./pictures/bgPic2.png" class="bgPic" alt="bgPic">
+        <p class="loginText">LOGIN</p>
+        <input type="text" class="usernameInput" id="usernameInput" name="usernameInput">
+        <p class="usernameText">username</p>
+        <input type="password" class="passInput" id="passInput" name="passInput">
+        <p class="passText">password</p>
+        <button class="enterButton" id="enterButton" name="enterButton">ENTER</button>
+        <p class="signupButton" id="signupButton">create an account</p>
+    </div>
+    <script src="./JS/keyhandlerLogin.js"></script>
+</body>
+</html>

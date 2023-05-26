@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<?php session_start(); ?>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/index.css">
+    <link rel="stylesheet" href="./CSS/my-slider.css">
+    <style>a{color:black}</style>
+    <title>OTRS-Homepage</title>
+    <script>window.addEventListener('offline', function(){history.pushState(null, null, window.location.href);window.location.replace("./offlinePage")})</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./JS/requestOTRS.js"></script>
+</head>
+<body>
+    <div class="header">
+        <img src="./pictures/logo.png" onclick="window.location.replace('./bridge')" class="logoHeader" alt="genericLogo">
+        <img src="./pictures/hamburgerButtonIcon.png" class="menuButton" id="menuButton" alt="hamburgerButtonIcon">
+        <p class="xButton" id="xButton">X</p>
+        <div class="userIndicator">
+            <?php
+                if(isset($_SESSION['uname'])){
+                    echo "<svg class='userIcon' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path fill='currentColor' d='M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2M7.07 18.28c.43-.9 3.05-1.78 4.93-1.78s4.5.88 4.93 1.78A7.893 7.893 0 0 1 12 20c-1.86 0-3.57-.64-4.93-1.72m11.29-1.45c-1.43-1.74-4.9-2.33-6.36-2.33s-4.93.59-6.36 2.33A7.928 7.928 0 0 1 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8c0 1.82-.62 3.5-1.64 4.83M12 6c-1.94 0-3.5 1.56-3.5 3.5S10.06 13 12 13s3.5-1.56 3.5-3.5S13.94 6 12 6m0 5a1.5 1.5 0 0 1-1.5-1.5A1.5 1.5 0 0 1 12 8a1.5 1.5 0 0 1 1.5 1.5A1.5 1.5 0 0 1 12 11Z'/></svg>";
+                    echo "<p class='unameText'>".$_SESSION['uname']."</p>";
+                }
+                else{
+                    echo "<p class='unameText'>Guest</p>";
+                }
+            ?>
+        </div>
+    </div>
+    <div class="body">
+        <div class="contents">
+            <div class="quickNav" id="quickNav">
+            </div>
+            <img src="./pictures/bgPic.png" class="designPic1" alt="bgPic">
+            <!-- <div class="ism-slider designPic2" data-transition_type="fade" id="my-slider">
+                <ol>
+                  <li>
+                    <img src="pictures/Motorshops/moto1.png">
+                    <div class="ism-caption ism-caption-0">
+                        <h2 style="margin-bottom: 0%;">Champion Work</h1>
+                        <p style="margin-top: 0%;">Repair Service</p>
+                        <p>Location: Siling Bata, Pandi,<br>Bulacan</p>
+                        <p>Top 3 Service Offer:</p>
+                        <p style="margin-left: 20%;">Tune Up<br>Change Oil<br>Maintenance</p>
+                    </div>
+                  </li>
+                  <li>
+                    <img src="pictures/Motorshops/moto2.png">
+                    <div class="ism-caption ism-caption-0">
+                        <h2 style="margin-bottom: 0%;">Electric Motor</h1>
+                        <p style="margin-top: 0%;">Repair Service</p>
+                        <p>Location: Bunsuran 1st, Pandi,<br>Bulacan</p>
+                        <p>Top 3 Service Offer:</p>
+                        <p style="margin-left: 20%;">Engine Repair<br>Tune Up<br>Maintenance</p>
+                    </div>
+                  </li>
+                  <li>
+                    <img src="pictures/Motorshops/moto3.png">
+                    <div class="ism-caption ism-caption-0">
+                        <h2 style="margin-bottom: 0%;">Moto Club</h1>
+                        <p style="margin-top: 0%;">Motor Parts Shop and Service</p>
+                        <p>Location: Bunsuran 2nd,<br> Pandi,Bulacan</p>
+                        <p>Top 3 Service Offer:</p>
+                        <p style="margin-left: 20%;">Change Oil<br>Maintenance<br>Delivery</p>
+                    </div>
+                  </li>
+                  <li>
+                    <img src="pictures/Motorshops/moto4.png">
+                    <div class="ism-caption ism-caption-0">
+                        <h2 style="margin-bottom: 0%;">DRM Motorshop</h1>
+                        <p style="margin-top: 0%;">Motor Parts Shop</p>
+                        <p>Location: Cacarong Matanda,<br>Pandi, Bulacan</p>
+                        <p>Top 3 Service Offer:</p>
+                        <p style="margin-left: 20%;">Accessories<br>Gear<br>Delivery</p>
+                    </div>
+                  </li>
+                  <li>
+                    <img src="pictures/Motorshops/moto5.png">
+                    <div class="ism-caption ism-caption-0">
+                        <h2 style="margin-bottom: 0%;">MOJO Motorshop</h1>
+                        <p style="margin-top: 0%;">Motor Parts Shop</p>
+                        <p>Location: Masagana, Pandi,<br>Bulacan</p>
+                        <p>Top 3 Service Offer:</p>
+                        <p style="margin-left: 20%;">Accessories<br>Gear<br>Delivery</p>
+                    </div>
+                  </li>
+                  <li>
+                    <img src="pictures/Motorshops/moto6.png">
+                    <div class="ism-caption ism-caption-0">
+                        <h2 style="margin-bottom: 0%;">Teds Motorshop</h1>
+                        <p style="margin-top: 0%;">Motor Parts Shop</p>
+                        <p>Location: Cupang,Pandi,<br>Bulacan</p>
+                        <p>Top 3 Service Offer:</p>
+                        <p style="margin-left: 20%;">Accessories<br>Gear<br>Delivery</p>
+                    </div>
+                  </li>
+                </ol>
+            </div> -->
+            <?php
+                if(isset($_SESSION['uname'])){
+                    echo "<button type='button' class='buttonShop' onclick='window.location.replace(`./parts?categ=None`)'>SHOP NOW</button>";
+                }
+                else{
+                    echo "<button type='button' class='buttonOTRS' onclick='window.location.replace(`./parts?categ=None`)'>SHOP NOW</button>";
+                    echo "<button type='button' class='button2' onclick='window.location.replace(`./signup`)'>JOIN US NOW!!!</button>";
+                }
+            ?>
+            <div class="footerBar">
+                <div class="socialLink">
+                    <p class="textFollow">Follow Us:</p>
+                    <img src="./pictures/fbLogo.png" class="fbLogo" alt="fbLogo">
+                    <img src="./pictures/instaLogo.png" class="instaLogo" alt="instaLogo">
+                    <img src="./pictures/twitterLogo.png" class="twitterLogo" alt="twitterLogo">
+                    <p class="text1 appLogo">Facebook:</p>
+                    <p class="text2 appLogo">Instagram:</p>
+                    <p class="text3 appLogo">Twitter:</p>
+                </div>
+                <div class="footer">
+                    <div class="logoFooter1">
+                        <img src="./pictures/logo.png" alt="genericLogo">
+                    </div>
+                    <p class="contactText ctctText">Contact Number:</p>
+                    <p class="contactNumberText ctctInfo">09758938782</p>
+                    <p class="emailText ctctText">Email:</p>
+                    <p class="emailAddressText ctctInfo">generericMotoShop@gmail.com</p>
+                    <p class="creditText">Coppyright 2023 ©</p>
+                    <div class="logoFooter2">
+                        <img src="./pictures/logo.png" alt="genericLogo">
+                    </div>
+                    <div class="finalFooter"></div>
+                </div>
+            </div>
+        </div>
+        <div class="menu menuhidden" id="menu">
+            <p class="homeButton"><a href="./index">Home</a></p>
+            <p class="shopButton"><a class="shopButton" href="./parts?categ=None">Shop</a></p>
+            <?php
+                if(isset($_SESSION['uname'])){
+                    echo "<p class='cartButton'><a href='./cart'>Cart</a></p>";
+                    echo "<p class='logButton'><a href='". $_SERVER["PHP_SELF"]."/../PHP/endSession.php'>Logout</a></p>";
+                }
+                else{
+                    echo "<p class='cartButton'><a href='./login'>Cart</a></p>";
+                    echo "<p class='logButton' ><a class='logButton' href='./login' >Login</a></p>";
+                }
+            ?>
+            <p class="aboutButton">About Us</p>
+            <p class="contactButton">Contact Us</p>
+        </div>
+    </div>
+    <script src="./JS/addQuickNav.js"></script>
+    <script src="./JS/checkVerified.js"></script>
+    <script src="./JS/burgerMenu.js"></script>
+</body>
+</html>

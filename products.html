@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<?php session_start(); ?>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/products.css">
+    <title>OTRS-Inventory</title>
+    <script>window.addEventListener('offline', function(){history.pushState(null, null, window.location.href);window.location.replace("./offlinePage")})</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./JS/addprods.js"></script>
+    <script src="./JS/getProductList.js"></script>
+</head>
+<body>
+    <div class="header">
+        <img src="./pictures/logo.png" class="logoHeader" alt="genericLogo">
+        <img src="./pictures/hamburgerButtonIcon.png" class="menuButton" id="menuButton" alt="hamburgerButtonIcon">
+        <p class="xButton" id="xButton">X</p>
+    </div>
+    <div class="body">
+        <div class="menu menuhidden" id="menu">
+            <p class="prodButton"><a class="prodButton" href="./products">Products</a></p>
+            <p class="shopButton"><a class="shopButton" href="./orders">Orders</a></p>
+            <p class="reportsButton"><a class="reportsButton" href="./reports">Reports</a></p>
+            <?php
+                if(isset($_SESSION['uname'])){
+                    echo "<p class='logButton'><a class='logButton' href='". $_SERVER["PHP_SELF"]."/../PHP/endAdminSession.php'>Logout</a></p>";
+                }
+            ?>
+        </div>
+        <div class="content">
+            <button type="button" class="prodsButton" id="prodsButton">PRODUCT LIST</button>
+            <button type="button" class="newProdsButton" id="newProdsButton">ADD NEW PRODUCT</button>
+            <div class="prodsDiv" id="prodsDiv">
+                <div class="searchDiv" id="searchDiv">
+                    <img src="./pictures/searchIcon.png" alt="searchICon" class="searchIcon">
+                    <input type="text" placeholder="Search" class="inputSearch" id="inputSearch">
+                </div>
+                <div class="divTable">
+                    <table id="prodsTable" class="prodsTable" name="prodsTable">
+                        <tr>
+                            <th width="15%" class="columnID">ID</th>
+                            <th width="40%" class="columnName">Name</th>
+                            <th width="10%" class="columnStock">Stock</th>
+                            <th width="90%" class="columnStatus">Status</th>    
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="newProdsDiv" id="newProdsDiv">
+                <p class="productnameText pdText">Product Name</p>
+                <input type="text" class="productnameInput pdInput" id="productnameInput" name="productnameInput" placeholder="MotoParts 2000">
+                <p class="priceText pdText">Price</p>
+                <input type="number" class="priceInput pdInput" name="priceInput" id="priceInput" placeholder="0">
+                <p class="quanText pdText">Quantity</p>
+                <input class="quantityInput pdInput" id="quantityInput" min="0" name="quantityInput" placeholder="0" type="number">
+                <p class="descText pdText">Description</p>
+                <textarea name="descInput" id="descInput" class="descInput pdInput" cols="23" rows="10"></textarea>
+                <p class="addText pdText">Add Image</p>
+                <p class="categText pdText">Category</p>
+                <select class="selectCateg pdInput" name="selectCateg" id="selectCateg">
+                    <option value="Other" hidden>Select Category</option>
+                </select>
+                <p class="nCateg pdText">Add Category</p>
+                <input type="text" class="nCategInput pdInput" placeholder="New Category" id="nCategInput" name="nCategInput">
+                <input type="file" class="imgInput pdInput" id="imgInput" name="imgInput" accept="image/*">
+                <button type="button" class="submitButton" id="submitButton" name="submitButton">SUBMIT</button>
+            </div>  
+        </div>
+        <?php
+        if (isset($_SESSION['uname'])){
+            if ($_SESSION['uname']=='OTRSadmin'){
+                echo "<p style='visibility:hidden;' id='a98v4Hhvn'>".$_SESSION['uname']."</p>";
+            }
+            else{
+                echo "<p style='visibility:hidden;' id='a98v4Hhvn'>NotAdmin</p>";
+            }
+        } 
+        else{
+            echo "<p style='visibility:hidden;' id='a98v4Hhvn'>NotAdmin</p>";
+        }
+        ?>
+    </div>
+    <script src="./JS/checkAdmin.js"></script>
+    <script src="./JS/burgerMenu.js"></script>
+    <script src="./JS/clickRow.js"></script>
+    <script src="./JS/changeTabProd.js"></script>
+</body>
+</html>

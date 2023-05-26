@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<?php session_start(); ?>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/parts.css">
+    <style>a{color:black}</style>
+    <title>OTRS-Shop</title>
+    <script>window.addEventListener('offline', function(){history.pushState(null, null, window.location.href);window.location.replace("./offlinePage")})</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./JS/getProducts.js"></script>
+    <script src="./JS/addQuickNav.js"></script>
+</head>
+<body>
+    <div id="custom-toast" class="custom-toast">
+        <span class="custom-toast-message">ADDED TO CART SUCCESSFULY</span>
+    </div>
+    <div class="header">
+        <img src="./pictures/logo.png" class="logoHeader" alt="genericLogo">
+        <img src="./pictures/hamburgerButtonIcon.png" class="menuButton" id="menuButton" alt="hamburgerButtonIcon">
+        <p class="xButton" id="xButton">X</p>
+        <div class="userIndicator">
+            <?php
+                if(isset($_SESSION['uname'])){
+                    echo "<svg class='userIcon' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path fill='currentColor' d='M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2M7.07 18.28c.43-.9 3.05-1.78 4.93-1.78s4.5.88 4.93 1.78A7.893 7.893 0 0 1 12 20c-1.86 0-3.57-.64-4.93-1.72m11.29-1.45c-1.43-1.74-4.9-2.33-6.36-2.33s-4.93.59-6.36 2.33A7.928 7.928 0 0 1 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8c0 1.82-.62 3.5-1.64 4.83M12 6c-1.94 0-3.5 1.56-3.5 3.5S10.06 13 12 13s3.5-1.56 3.5-3.5S13.94 6 12 6m0 5a1.5 1.5 0 0 1-1.5-1.5A1.5 1.5 0 0 1 12 8a1.5 1.5 0 0 1 1.5 1.5A1.5 1.5 0 0 1 12 11Z'/></svg>";
+                    echo "<p class='unameText'>".$_SESSION['uname']."</p>";
+                }
+                else{
+                    echo "<p class='unameText'>Guest</p>";
+                }
+            ?>
+        </div>
+    </div>
+    <div class="body" onscroll="closeMenu()" onclick="closeMenu()">
+        <div class="menu menuhidden" id="menu">
+            <p class="homeButton"><a href="./index">Home</a></p>
+            <p class="shopButton"><a href="./parts?categ=None">Shop</a></p>
+            <?php
+                if(isset($_SESSION['uname'])){
+                    echo "<p class='cartButton'><a href='./cart'>Cart</a></p>";
+                    echo "<p class='logButton'><a class='logButton' href='". $_SERVER["PHP_SELF"]."/../PHP/endSession.php'>Logout</a></p>";
+                }
+                else{
+                    echo "<p class='cartButton'><a href='./login'>Cart</a></p>";
+                    echo "<p class='logButton' ><a class='logButton' href='./login' >Login</a></p>";
+                }
+            ?>
+            <p class="aboutButton">About Us</p>
+            <p class="contactButton">Contact Us</p>
+        </div>
+        <div class="contents">
+            <div class="quickNav" id="quickNav">
+            </div>
+            <div class="searchDiv">
+                <p class="searchText">Search</p>
+                <input type="text" class="searchInput" id="searchInput" name="searchInput">
+                <img src="./pictures/searchIcon.png" alt="searchIcon" class="searchIcon">
+            </div>
+            <div class="parentDiv" id="parentDiv"></div>
+        </div>
+    </div>
+    <script src="./JS/checkVerified.js"></script>
+    <script src="./JS/burgerMenu.js"></script>
+</body>
+</html>

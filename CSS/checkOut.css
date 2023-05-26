@@ -1,0 +1,299 @@
+html, body{
+    margin: 0 auto;
+    height: 100%;
+    font-family:Arial, Helvetica, sans-serif;
+    color: black;
+    background-color: none;
+    overflow: hidden;
+}
+body{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 10% 90%;
+}
+/* HEADER */
+.header{
+    grid-row: 1;
+    grid-column: 1;
+    background-color: black;
+    display: grid;
+    grid-template-columns: 80% 20%;
+    grid-template-rows: 1fr;
+}
+.logoHeader{
+    grid-row: 1;
+    grid-column: 1;
+    width: 70%;
+    height: 50%;
+    margin-left: 3%;
+    margin-top: auto;
+    margin-bottom: auto;
+    border-bottom: black;
+    background-color: black;
+}
+.logoHeader img{
+    height: 100%;
+    width: 100%;
+}
+.contents{
+    grid-column: 1;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 8% 10% 7% 20% 10% 7% 26% 11%;
+}
+.fullnameText{
+    grid-column: 1;
+    grid-row: 1;
+    margin: auto;
+    margin-left: 5%;
+    font-size: 7vw;
+    font-weight: bolder;
+}
+.backIcon{
+    grid-column: 1;
+    grid-row: 1;
+    height: 50%;
+    width: 8%;
+    margin: auto;
+    margin-right: 2%;
+}
+.rowTitle{
+    grid-column: 1;
+    margin: auto;
+    margin-bottom: -2%;
+    margin-left: 5%;
+    font-size: 3.5vw;
+    color: rgba(0, 0, 0, 0.4);
+}
+.nameTitle{
+    grid-row: 1;
+}
+.addTitle{
+    grid-row: 2;
+}
+.cnumTitle{
+    grid-row: 3;
+}
+.userDetails{
+    grid-column: 1;
+    margin: auto;
+    margin-left: 5%;
+    width: 90%;
+    max-width: 90%;
+    border-bottom: rgba(0, 0, 0, 0.4) solid 1px;
+    font-size: 3.5vw;
+}
+.addressLine{
+    grid-row: 2;
+}
+.cnum{
+    grid-row: 3;
+}
+.message{
+    grid-column: 1;
+    grid-row: 4;
+    margin: auto;
+    margin-top: 4%;
+    height: 80%;
+    width: 85%;
+    font-size: 3.5vw;
+}
+.itemPriceDiv{
+    display: grid;
+    grid-row: 5;
+    grid-column: 1;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: fit-content(100%) 1fr;
+}
+.itemName{
+    grid-column: 1;
+    grid-row: 1;
+    margin: auto;
+    margin-left: 5%;
+    margin-top: 2%;
+    font-size: 5vw;
+}
+.nameDiv{
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+}
+.price{
+    grid-column: 1;
+    grid-row: 2;
+    margin: auto;
+    margin-left: 5%;
+    margin-bottom: 0%;
+    font-size: 6vw;
+    font-weight: bolder;
+    color: #F55139;
+}
+.stock{
+    grid-column: 1;
+    grid-row: 5;
+    margin: auto;
+    margin-right: 10%;
+    margin-bottom: 1%;
+    font-size: 3.5vw;
+}
+.justLine{
+    grid-column: 1;
+    grid-row: 5;
+    width: 90%;
+    margin: auto;
+    margin-left: 5%;
+    margin-bottom: 0%;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.4);
+}
+.quanText{
+    grid-column: 1;
+    grid-row: 6;
+    margin: auto;
+    margin-left: 5%;
+}
+.quan{
+    grid-column: 1;
+    grid-row: 6;
+    margin: auto;
+    margin-right: 5%;
+    width: 30%;
+    height: 75%;
+    border: #F55139 solid 1px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+.quanValue{
+    margin: auto;
+    grid-column: 2;
+    grid-row: 1;
+    width: 86%;
+    height: 90%;
+    border: #F55139 solid 1px;
+    background-color: #F55139;
+    text-align: center;
+    color: white;
+    font-size: 4vw;
+}
+.buttonQuan{
+    margin: auto;
+    grid-row: 1;
+    color: #F55139;
+    background-color: white;
+    border: none;
+    font-size: 5vw;
+}
+.quanPlus{
+    grid-column: 3;
+}
+.quanMinus{
+    grid-column: 1;
+}
+.quanValue:focus{
+    outline: none;
+}
+.compuDiv{
+    grid-column: 1;
+    grid-row: 7;
+    margin: auto;
+    margin-top: 5%;
+    height: 100%;
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 10% 15% 15% 15% 15%;
+    font-size: 3.5vw;
+}
+.ppText{
+    grid-column: 1;
+    grid-row: 2;
+    margin: auto;
+    margin-left: 0%;
+}
+.ppNum{
+    grid-column: 3;
+    grid-row: 2;
+    margin: auto;
+    margin-right: 0%;
+}
+.qText{
+    grid-column: 1;
+    grid-row: 3;
+    margin: auto;
+    margin-left: 0%;
+}
+.qNum{
+    grid-column: 3;
+    grid-row: 3;
+    margin: auto;
+    margin-right: 0%;
+}
+.subText{
+    grid-column: 2;
+    grid-row: 4;
+    margin: auto;
+    color: #F55139;
+    font-weight: bolder;
+}
+.subNum{
+    grid-column: 3;
+    grid-row: 4;
+    margin: auto;
+    margin-right: 0%;
+    color: #F55139;
+    font-weight: bolder;
+}
+.dText{
+    grid-column: 1;
+    grid-row: 5;
+    margin: auto;
+    margin-left: 0%;
+}
+.dFee{
+    grid-column: 3;
+    grid-row: 5;
+    margin: auto;
+    margin-right: 0%;
+}
+.totalDiv{
+    grid-column: 1;
+    grid-row: 8;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    color: #F55139;
+    border-top: rgba(0, 0, 0, 0.4) solid 1px;
+    font-size: 3.5vw;
+}
+.tText{
+    grid-column: 1;
+    grid-row: 1;
+    margin: auto;
+    margin-left: 8%;
+    color: black;
+}
+.tNum{
+    grid-column: 2;
+    grid-row: 1;
+    margin: auto;
+    margin-right: 5%;
+}
+.checkOutButton{
+    grid-column: 3;
+    grid-row: 1;
+    margin: auto;
+    height: 60%;
+    width: 90%;
+    border: none;
+    background-color: #F55139;
+    color: white;
+    font-size: 100%;
+    font-weight: bolder;
+    font-stretch: condensed;
+}

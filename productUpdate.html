@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<?php session_start(); ?>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/productUpdate.css">
+    <script>window.addEventListener('offline', function(){history.pushState(null, null, window.location.href);window.location.replace("./offlinePage")})</script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./JS/updateItem.js"></script>
+    <title>OTRS-Update Inventory</title>
+</head>
+<body>
+    <div class="header">
+        <a href="./index" class="logoHeader" id="logoHeader">
+            <img src="./pictures/logo.png" class="imgLogoHeader" alt="genericLogo">
+        </a>
+    </div>
+    <div class="content">
+        <img class="backIcon" id="backIcon" src="./pictures/backIcon.png" alt="backIcon">
+        <svg class="editImg" onclick="editImg()" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m22.7 14.3l-1 1l-2-2l1-1c.1-.1.2-.2.4-.2c.1 0 .3.1.4.2l1.3 1.3c.1.2.1.5-.1.7M13 19.9V22h2.1l6.1-6.1l-2-2l-6.2 6M21 5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h6v-1.9l1.1-1.1H5l3.5-4.5l2.5 3l3.5-4.5l1.6 2.1l4.9-5V5Z"/></svg>
+        <input type="file" class="imgInput pdInput" id="imgInput" name="imgInput" accept="image/*">
+        <div class="nameDiv">
+            <svg class="editIcon1 editIcon" onclick="editName()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#606060" d="M5 18h4.24a1 1 0 0 0 .71-.29l6.92-6.93L19.71 8a1 1 0 0 0 0-1.42l-4.24-4.29a1 1 0 0 0-1.42 0l-2.82 2.83l-6.94 6.93a1 1 0 0 0-.29.71V17a1 1 0 0 0 1 1Zm9.76-13.59l2.83 2.83l-1.42 1.42l-2.83-2.83ZM6 13.17l5.93-5.93l2.83 2.83L8.83 16H6ZM21 20H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Z"/></svg>
+        </div>
+        <div class="priceDiv">
+            <svg class="editIcon2 editIcon" onclick="editPrice()" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="#606060" d="M5 18h4.24a1 1 0 0 0 .71-.29l6.92-6.93L19.71 8a1 1 0 0 0 0-1.42l-4.24-4.29a1 1 0 0 0-1.42 0l-2.82 2.83l-6.94 6.93a1 1 0 0 0-.29.71V17a1 1 0 0 0 1 1Zm9.76-13.59l2.83 2.83l-1.42 1.42l-2.83-2.83ZM6 13.17l5.93-5.93l2.83 2.83L8.83 16H6ZM21 20H3a1 1 0 0 0 0 2h18a1 1 0 0 0 0-2Z"/></svg>
+        </div>
+        <div class="stockDiv">
+            <svg class="resetIcon" id="resetIcon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="#f55139"><path d="M12.079 2.25c-4.794 0-8.734 3.663-9.118 8.333H2a.75.75 0 0 0-.528 1.283l1.68 1.666a.75.75 0 0 0 1.056 0l1.68-1.666a.75.75 0 0 0-.528-1.283h-.893c.38-3.831 3.638-6.833 7.612-6.833a7.658 7.658 0 0 1 6.537 3.643a.75.75 0 1 0 1.277-.786A9.158 9.158 0 0 0 12.08 2.25Z"/><path d="M20.841 10.467a.75.75 0 0 0-1.054 0L18.1 12.133a.75.75 0 0 0 .527 1.284h.899c-.381 3.83-3.651 6.833-7.644 6.833a7.697 7.697 0 0 1-6.565-3.644a.75.75 0 1 0-1.276.788a9.197 9.197 0 0 0 7.84 4.356c4.809 0 8.766-3.66 9.151-8.333H22a.75.75 0 0 0 .527-1.284l-1.686-1.666Z" opacity=".5"/></g></svg>
+            <div class="addStockDiv">
+                <input type="number" class="inputNewStock" id="inputNewStock" placeholder="Quantity">
+                <button type="button" class="addButton" id="addButton">ADD</button>
+            </div>
+        </div>
+        <div class="categDiv">
+            <select name="categSelection" id="categSelection" class="categSelection"></select>
+        </div>
+        <input type="text" id="categInput" placeholder="Type New Category Here" class="categInput">
+        <div class="descDiv">
+            <p class="prodDesc">Product Description</p>
+            <textarea class="prodDescText" name="prodDescText" id="prodDescText" cols="30" rows="10"></textarea>
+        </div>
+        <?php
+        if (isset($_SESSION['uname'])){
+            if ($_SESSION['uname']=='OTRSadmin'){
+                echo "<p style='visibility:hidden;' id='a98v4Hhvn'>".$_SESSION['uname']."</p>";
+            }
+            else{
+                echo "<p style='visibility:hidden;' id='a98v4Hhvn'>NotAdmin</p>";
+            }
+        } 
+        else{
+            echo "<p style='visibility:hidden;' id='a98v4Hhvn'>NotAdmin</p>";
+        }
+        ?>
+    </div>
+    <script src="./JS/checkAdmin.js"></script>
+    <script src="./JS/editIcon.js"></script>
+</body>
+</html>

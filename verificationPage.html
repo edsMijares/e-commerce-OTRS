@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<?php session_start() ?>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/verificationPage.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script>window.addEventListener('offline', function(){history.pushState(null, null, window.location.href);window.location.replace("./offlinePage")})</script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./JS/verification.js"></script>
+    <title>OTRS-Verification Page</title>
+</head>
+<body>
+    <div id="custom-toast" class="custom-toast">
+        <span class="custom-toast-message">Code Provided is Incorrect</span>
+    </div>
+    <div class="header">
+        <a href="./index" class="logoHeader" id="logoHeader">
+            <img src="./pictures/logo.png" class="imgLogoHeader" alt="genericLogo">
+        </a>
+    </div>
+    <div class="content">
+        <img class="logoImg" src="./pictures/logoMoto.png" alt="logoMoto">
+        <h1 class="vText">VERIFY YOUR<br>ACCOUNT</h1>
+        <p class="mText">An Email has been sent to<br>example@email.com</p>
+        <div class="codeDiv" id="codeDiv">
+            <input type="number" id="num1" class="numberInput num1" pattern="[0-9]+" oninput="this.value=this.value.replace(/[^\d]/,'');" disabled>
+            <input type="number" id="num2" class="numberInput num2" pattern="[0-9]+" oninput="this.value=this.value.replace(/[^\d]/,'');" disabled>
+            <input type="number" id="num3" class="numberInput num3" pattern="[0-9]+" oninput="this.value=this.value.replace(/[^\d]/,'');" disabled>
+            <input type="number" id="num4" class="numberInput num4" pattern="[0-9]+" oninput="this.value=this.value.replace(/[^\d]/,'');" disabled>
+            <input type="number" id="num5" class="numberInput num5" pattern="[0-9]+" oninput="this.value=this.value.replace(/[^\d]/,'');" disabled>
+            <input type="number" id="num6" class="numberInput num6" pattern="[0-9]+" oninput="this.value=this.value.replace(/[^\d]/,'');" disabled>
+        </div>
+        <h3 class="v2Text">VERIFICATION CODE HERE</h3>
+    </div>
+    <script src="./JS/codeInputHandler.js"></script>
+</body>
+</html>
